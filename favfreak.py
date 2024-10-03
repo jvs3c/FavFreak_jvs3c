@@ -79,6 +79,9 @@ def main():
         print(f"~ \u001b[36m[{len(a[i])}]  : \u001b[35m[{i}]\u001b[0m ")
     
     print("\n[End of Results]\n")
+    
+    # Return the dictionary and URLs list
+    return a, urls
 
 
 if __name__ == "__main__":
@@ -88,8 +91,9 @@ if __name__ == "__main__":
         parser.add_argument('--shodan', help='Prints Shodan Dorks', action='store_true')
         args = parser.parse_args()
         
-        # Running the main process
+        # Running the main process and collecting the return values
         a, urls = main()
 
     except KeyboardInterrupt:
         print("\n\u001b[31m[EXIT] Keyboard Interrupt Encountered \u001b[0m")
+a
