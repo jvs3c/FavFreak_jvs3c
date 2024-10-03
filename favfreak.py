@@ -614,7 +614,7 @@ if __name__ == "__main__":
             print("\u001b[32m[Shodan Dorks] - \u001b[0m\n")
             for i in a.keys():
                 if i != 0:
-                    print("\u001b[34m[DORK]\u001b[0m org:\"Target-Name\" http.favicon.hash:"+str(i))
+                    print(f"https://www.shodan.io/search?query=http.favicon.hash:{i}")
 
         if args.output:
             for i in a.keys():
