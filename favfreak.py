@@ -53,9 +53,9 @@ def main():
 
     for url, hash, error in results:
         if error is None:
-            print(f"\u001b[32m[INFO]\u001b[0m Fetched {url[:-12]}")
+            pass
         else:
-            print(f"\u001b[31m[ERR]\u001b[0m Not Fetched {url[:-12]}")
+            pass
     
     print("\n-------------------------------------------------------------------")
     
@@ -63,7 +63,7 @@ def main():
         # Printing the hash and associated URLs
         print(f"\u001b[33m[Hash]\u001b[0m \u001b[32;1m{hash_key}\u001b[0m")
         for url in associated_urls:
-            print(f"     {url[:-12]}")
+            print(f"{url[:-12]}")
         
         # If the hash matches a fingerprint
         if hash_key in fingerprint:
@@ -73,13 +73,6 @@ def main():
         print(f"\u001b[34m[Shodan Dork]\u001b[0m https://www.shodan.io/search?query=http.favicon.hash:{hash_key}")
         print("-------------------------------------------------------------------")
     
-    print("\nSummary:")
-    print(" \u001b[36mcount      \u001b[35mHash\u001b[0m         ")
-    for i in a.keys():
-        print(f"~ \u001b[36m[{len(a[i])}]  : \u001b[35m[{i}]\u001b[0m ")
-    
-    print("\n[End of Results]\n")
-    
     # Return the dictionary and URLs list
     return a, urls
 
@@ -87,8 +80,6 @@ def main():
 if __name__ == "__main__":
     try:
         parser = argparse.ArgumentParser(description='FavFreak - a Favicon Hash based asset mapper')
-        parser.add_argument('-o', '--output', help='Output file name')
-        parser.add_argument('--shodan', help='Prints Shodan Dorks', action='store_true')
         args = parser.parse_args()
         
         # Running the main process and collecting the return values
