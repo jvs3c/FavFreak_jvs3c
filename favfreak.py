@@ -71,17 +71,6 @@ if __name__ == "__main__":
         args = parser.parse_args()
         if os.name == 'nt':
             os.system('cls')
-        banner = """\u001b[32m
-
-    \u001b[31m_______ _______ \u001b[0m\u001b[32m_    _ _______  ______ _______ _______ _     _
-    |______ |_____|  \  /  |______ |_____/ |______ |_____| |____/ 
-    |       |     |   \/   |       |    \u001b[31m\_ |______\u001b[0m\u001b[32m |     | |    \_
-
-                                \u001b[35m- Coded with \u001b[31m<3\u001b[0m\u001b[35m by Devansh Batham               
-                                                        
-           \u001b[0m 
-        """
-        print(banner)
         a,urls= main()
 
         # add your fingerprints here :
