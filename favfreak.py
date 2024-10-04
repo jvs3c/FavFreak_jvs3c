@@ -36,12 +36,9 @@ def main():
         except Exception as e:
             return url, None, e
 
-    # Running the fetch URL task with ThreadPool
     results = ThreadPool(20).imap_unordered(fetch_url, urls)
-    
-    # Collecting and printing results
-    print("\u001b[32m[Unified Results] - \u001b[0m\n")
-    
+    print("\u001b[32m[Results]\u001b[0m\n")
+
     fingerprint = {
         99395752: "slack-instance",
         116323821: "spring-boot",
@@ -57,14 +54,12 @@ def main():
         else:
             pass
     
-    print("\n-------------------------------------------------------------------")
+    print("-------------------------------------------------------------------")
     
     for hash_key, associated_urls in a.items():
-        # Printing the hash and associated URLs
-        print(f"\u001b[33m[Hash]\u001b[0m \u001b[32;1m{hash_key}\u001b[0m")
         for url in associated_urls:
             print(f"{url[:-12]}")
-        
+        print(f"\u001b[33m[Hash]\u001b[0m \u001b[32;1m{hash_key}\u001b[0m")
         # If the hash matches a fingerprint
         if hash_key in fingerprint:
             print(f"\u001b[31m[Fingerprint Match]\u001b[0m {fingerprint[hash_key]}")
@@ -73,7 +68,6 @@ def main():
         print(f"\u001b[34m[Shodan Dork]\u001b[0m https://www.shodan.io/search?query=http.favicon.hash:{hash_key}")
         print("-------------------------------------------------------------------")
     
-    # Return the dictionary and URLs list
     return a, urls
 
 
