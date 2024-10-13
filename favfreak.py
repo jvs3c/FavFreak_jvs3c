@@ -548,8 +548,6 @@ def main():
         else:
             pass
     
-    print("-------------------------------------------------------------------")
-    
     for hash_key, associated_urls in a.items():
         for url in associated_urls:
             print(f"{url[:-12]}")
