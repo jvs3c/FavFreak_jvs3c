@@ -551,7 +551,7 @@ def main():
             pass
     
     if not has_results:
-        print("No results found")
+        print("No results found :(")
         return a, urls  # Early return if no results
 
     # Continue to process results if any were found
