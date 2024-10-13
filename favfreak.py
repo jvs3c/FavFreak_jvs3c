@@ -13,7 +13,7 @@ import os
 def main():
     urls = []
     a = {}
-    
+
     # Reading the URLs
     for line in sys.stdin:
         if line.strip()[-1] == "/":
@@ -542,12 +542,19 @@ def main():
         180732787:"Apache Flink"
     }
 
+    has_results = False  # A flag to track if any results were found
+
     for url, hash, error in results:
-        if error is None:
-            pass
+        if error is None and hash is not None:
+            has_results = True  # Indicate that we found some results
         else:
             pass
     
+    if not has_results:
+        print("No results found")
+        return a, urls  # Early return if no results
+
+    # Continue to process results if any were found
     for hash_key, associated_urls in a.items():
         for url in associated_urls:
             print(f"{url[:-12]}")
